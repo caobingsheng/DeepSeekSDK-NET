@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net8.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
@@ -47,5 +47,10 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Text.Encodings.Web" Version="9.0.3" />
+      <PackageReference Include="System.Text.Json" Version="9.0.3" />
+      <PackageReference Include="System.Threading.Channels" Version="9.0.3" />
     </ItemGroup>
 </Project>

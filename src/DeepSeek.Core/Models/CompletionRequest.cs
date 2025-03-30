@@ -12,7 +12,7 @@ public class CompletionRequest
     /// <summary>
     /// prompt
     /// </summary>
-    public required string Prompt { get; set; }
+    public string Prompt { get; set; }
     /// <summary>
     /// 使用的模型的 ID。您可以使用 deepseek-chat 或者 deepseek-reasoner。
     /// </summary>

@@ -146,7 +146,7 @@ public class DeepSeekClient
 
         if (response.IsSuccessStatusCode)
         {
-            var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+            var stream = await response.Content.ReadAsStreamAsync();
             using var reader = new StreamReader(stream);
 
             while (!reader.EndOfStream && !cancellationToken.IsCancellationRequested)
@@ -234,7 +234,7 @@ public class DeepSeekClient
 
         if (response.IsSuccessStatusCode)
         {
-            var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+            var stream = await response.Content.ReadAsStreamAsync();
             using var reader = new StreamReader(stream);
 
             while (!reader.EndOfStream && !cancellationToken.IsCancellationRequested)
