@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 using System.Threading.Channels;
+using DeepSeek.Core.Json;
 using DeepSeek.Core.Models;
 
 namespace DeepSeek.Core;
@@ -38,7 +39,8 @@ public class DeepSeekClient
     {
         ReferenceHandler = ReferenceHandler.IgnoreCycles,
         PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+        TypeInfoResolver = DeepSeekJsonContext.Default,
     };
 
     public string? ErrorMsg { get; private set; }
@@ -154,7 +156,7 @@ public class DeepSeekClient
                 var line = await reader.ReadLineAsync();
                 if (line != null && line.StartsWith("data: "))
                 {
-                    
+
                     var json = line.Substring(6);
                     if (!string.IsNullOrWhiteSpace(json) && json != StreamDoneSign)
                     {
